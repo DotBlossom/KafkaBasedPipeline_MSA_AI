@@ -17,6 +17,8 @@ import java.util.Map;
 
 @Configuration
 public class ExactlyOnceProducerConfig {
+    // ExactlyOnce 전략 : no transaction, At least Once + duplicationFilterChecker
+
 
     // properties-injections
 
@@ -46,7 +48,12 @@ public class ExactlyOnceProducerConfig {
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
+        props.put(ProducerConfig.RETRIES_CONFIG, 3);
+        // 고민.. dup prob minimizing?
+        // 도입 가능한 이유 : key를 사용해서 > 동일 이벤트는 동일한 partition으로 가게해서 순서보장하기에.
         props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
+
+        // 고민.. 그래도 분리된 factory 특성이니까, 보장해주자
         props.put(ProducerConfig.ACKS_CONFIG, "all");
 
         return props;
