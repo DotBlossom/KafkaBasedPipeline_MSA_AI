@@ -58,7 +58,7 @@ public class KafkaMessagePublisher {
 
 
     private static void sendLog(String message, RecordMetadata recordMetadata) {
-        log.info("Sent message = {} with offset = {}", message, recordMetadata.offset());
+        log.info("Received message = {} with offset = {}", message, recordMetadata.offset());
         log.info("Topic Name = {}", recordMetadata.topic());
         log.info("Topic Partition Count = {}", recordMetadata.partition());
     }

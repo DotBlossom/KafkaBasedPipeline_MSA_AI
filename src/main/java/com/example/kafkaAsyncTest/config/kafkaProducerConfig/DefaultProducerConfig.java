@@ -34,7 +34,7 @@ public class DefaultProducerConfig {
     // set - configuration
     // configHashMap -> Factory -> Template
 
-    @Bean
+
     public Map<String, Object> defaultProducerConfig() {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap);

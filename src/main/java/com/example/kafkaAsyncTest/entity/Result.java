@@ -29,4 +29,16 @@ public class Result {
     @Column(name = "event_related_id")
     private List<Long> eventRelatedIds = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "Result{" +
+                "resultId=" + resultId +
+                ", eventType='" + eventType + '\'' +
+                ", transactionalEventLevel=" + transactionalEventLevel +
+                ", currentEventLevel=" + currentEventLevel +
+                ", eventRelatedIds=" + eventRelatedIds +
+                '}';
+    }
+
+
 }

@@ -19,6 +19,8 @@ public class ResultServiceImpl implements ResultService {
         Result res = Result.builder()
                 .eventType(resReq.getEventType())
                 .eventRelatedIds(resReq.getEventRelatedIds())
+                .currentEventLevel(resReq.getCurrentEventLevel())
+                .transactionalEventLevel(resReq.getTransactionalEventLevel())
                 .build();
 
         return resultRepository.save(res);

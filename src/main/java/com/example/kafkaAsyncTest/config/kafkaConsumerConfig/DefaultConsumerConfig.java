@@ -24,8 +24,8 @@ public class DefaultConsumerConfig {
     @Value("${kafkaPipeline.bootstrap-servers}")
     private String bootstrap="";
 
-    @Bean
-    public Map<String, Object> defaultConsumerConfig() {
+
+    public Map<String, Object> consumerConfig() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -35,15 +35,15 @@ public class DefaultConsumerConfig {
     }
 
     @Bean
-    public ConsumerFactory<String,Object> defaultConsumerFactory(){
-        return new DefaultKafkaConsumerFactory<>(defaultConsumerConfig());
+    public ConsumerFactory<String,Object> consumerFactory(){
+        return new DefaultKafkaConsumerFactory<>(consumerConfig());
     }
 
     @Bean
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, Object> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(defaultConsumerFactory());
+        factory.setConsumerFactory(consumerFactory());
 
         return factory;
     }
