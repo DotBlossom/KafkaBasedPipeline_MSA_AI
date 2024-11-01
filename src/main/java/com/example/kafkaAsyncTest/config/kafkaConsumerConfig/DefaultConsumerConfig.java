@@ -22,7 +22,7 @@ import java.util.Map;
 public class DefaultConsumerConfig {
 
     @Value("${kafkaPipeline.bootstrap-servers}")
-    private String bootstrap;
+    private String bootstrap="";
 
     @Bean
     public Map<String, Object> defaultConsumerConfig() {

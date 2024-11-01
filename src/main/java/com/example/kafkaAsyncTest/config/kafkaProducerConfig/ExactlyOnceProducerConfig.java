@@ -23,10 +23,10 @@ public class ExactlyOnceProducerConfig {
     // properties-injections
 
     @Value("${kafkaPipeline.bootstrap-servers}")
-    private String bootstrap;
+    private String bootstrap="";
 
     @Value("${kafkaPipeline.topic-name-1}")
-    private String topic_1_name;
+    private String topic_1_name="";
 
 
 

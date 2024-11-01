@@ -24,7 +24,7 @@ public class ExactlyOnceConsumerConfig {
 
 
     @Value("${kafkaPipeline.bootstrap-servers}")
-    private String bootstrap;
+    private String bootstrap="";
 
     @Bean
     public Map<String, Object> exactlyOnceConsumerConfig() {

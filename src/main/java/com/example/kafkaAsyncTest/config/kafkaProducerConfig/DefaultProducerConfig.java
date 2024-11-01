@@ -16,10 +16,10 @@ import java.util.Map;
 public class DefaultProducerConfig {
 
     @Value("${kafkaPipeline.bootstrap-servers}")
-    private String bootstrap;
+    private String bootstrap = "";
 
     @Value("${kafkaPipeline.topic-name-2}")
-    private String topic_2_name;
+    private String topic_2_name = "";
 
 
 
