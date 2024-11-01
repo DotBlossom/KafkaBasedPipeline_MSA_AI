@@ -4,12 +4,13 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.listener.adapter.RecordFilterStrategy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@EnableScheduling
+@Component
 public class DeduplicationFilterStrategy implements RecordFilterStrategy<String,Object>  {
 
     // 추후 DB나 redis에서 스케쥴링해서 비우기를 구현하자.

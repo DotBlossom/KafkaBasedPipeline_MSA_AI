@@ -1,9 +1,12 @@
 package com.example.kafkaAsyncTest.aspect;
 
 
+import com.example.kafkaAsyncTest.entity.Result;
 import com.example.kafkaAsyncTest.service.KafkaMessagePublisher;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +20,20 @@ public class ExportToKafkaProducerEventCollectionAspect {
     private final KafkaMessagePublisher kafkaMessagePublisher;
     // producer Service Call - final
 
-    // pointcut
+    @AfterReturning(pointcut = "execution(* com.example.kafkaAsyncTest.controller.*.createResponse(..))",
+    returning = "result")
+    public void afterReturningExportToKafkaProducerAspect(JoinPoint joinPoint, Object result) {
+        if (!(result instanceof Exception)) {
 
-    // typeDef
+            if(result instanceof Result resultInstance) {
+
+            }
+
+
+
+        }
+
+    }
+
+
 }
