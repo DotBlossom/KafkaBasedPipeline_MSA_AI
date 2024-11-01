@@ -32,5 +32,6 @@ public class KafkaMessageSubscriber {
         log.info("Receive message = {} with offset = {}", message, record.offset());
         log.info("Topic Name = {}", record.topic());
         log.info("Topic Partition Count = {}", record.partition());
+
     }
 }
