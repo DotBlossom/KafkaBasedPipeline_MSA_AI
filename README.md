@@ -15,6 +15,10 @@
 
 
 
+
+### 카프카 Prod, Consumer를 Default (at least once), Exatly Once(default + ack + Reply + Filter)로 구성
+
+
 ### 주의사항:
 Config 객체를 형성할때, bean annotation을 사용할 필요가없음.
 CustonConfig 여러개를 관리하게되면, 상이한 이름이라도, 동일한 config객체로 인식함.
