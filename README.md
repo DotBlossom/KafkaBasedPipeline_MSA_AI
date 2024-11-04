@@ -40,3 +40,7 @@
 ### DeferredResult + ListenableProps || CompleteFuture.Supply ...  
     온전한 비동기 호출 property 구현완료
 
+
+### external cluster transactinal block router
+    transacrionalLevelTraxker 값으로 url처럼 앞에서 라우팅
+
